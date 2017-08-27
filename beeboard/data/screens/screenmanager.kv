@@ -1,0 +1,98 @@
+#:import Factory kivy.factory.Factory
+#:import label kivy.uix.label
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import ListItemButton kivy.uix.listview.ListItemButton
+#: import main main
+
+ShowcaseScreen:
+    # general ids - to work with python
+    screenManager: sm
+    screen: mainScreen
+    floatLayout: floatLayoutKv
+    labelSearching: labelPrinters
+    labelPrinters: labelAvailablePrinters
+    spinnerStates: spinnerStates
+    spinnerFilaments: spinnerFilaments
+    labelFilterPrinters: labelFilterPrinters
+    #button1: button1
+    boxLayoutLeft: boxLayoutLeft
+    stackLayout: stackLayout
+
+    id: showCaseScreen
+    name: 'ScreenManager'
+    fullscreen: True
+
+    ScreenManager:
+        id: sm
+
+        Screen:
+            id: mainScreen
+            name: 'mainScreen'
+            canvas.before:
+                Color:
+                    rgba: 0.95, 0.95, 0.95, 1
+                Rectangle:
+                    size: self.size
+            padding: 10
+            spacing: 10
+
+            FloatLayout:
+                id: floatLayoutKv
+                spacing: 10
+                padding: 10
+
+                Label:
+                    id: labelPrinters
+                    pos_hint: {"center_x": 0.5, "center_y": .5}
+                    text: "Searching Printers ..."
+                    color: 0,0,0,1
+                    font_size: 25
+
+                Label:
+                    id: labelAvailablePrinters
+                    pos_hint: {"center_x": 0.093, "center_y": .75}
+                    color: 0,0,0,0
+                    font_size: 20
+
+                Label:
+                    id: labelFilterPrinters
+                    text: "Filter your Printers:"
+                    pos_hint: {"center_x": 0.078, "center_y": .65}
+                    color: 0,0,0,.9
+                    font_size: 18
+                    opacity: 0
+
+
+                Spinner:
+                    id: spinnerStates
+                    pos_hint: {"center_x": 0.21, "center_y": .65}
+                    text: 'State'
+                    size_hint: .11, None
+                    height: '48dp'
+                    opacity: 0
+
+                Spinner:
+                    id: spinnerFilaments
+                    pos_hint: {"center_x": 0.36, "center_y": .65}
+                    text: 'Filament'
+                    size_hint: .11, None
+                    height: '48dp'
+                    opacity: 0
+
+                BoxLayout:
+                    id: boxLayoutLeft
+                    orientation: 'vertical'
+                    spacing: 5
+                    padding: 5
+                    size_hint_y: .5
+                    size: root.size
+                    pos: root.pos
+                    pos_hint: {"x": 0.001, "top": .57}
+                    opacity: 0
+
+                    StackLayout:
+                        id: stackLayout
+                        orientation: 'lr-tb'
+                        size_hint_x: .46
+                        spacing: 5
+                        padding: 5
