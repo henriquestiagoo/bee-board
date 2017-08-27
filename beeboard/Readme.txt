@@ -1,5 +1,5 @@
 
-# BEEBoard V1.0 - BEEVERYCREATIVE
+# BEEBoard V1.0
 
 Printers File: Should be named 'printers.txt'
 
